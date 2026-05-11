@@ -2,15 +2,24 @@ import requests
 import json
 
 def check_cdx_archive(username):
-    # Expanded list with common CTF patterns
+    # Expanded list with common CTF patterns and ID-based formats
     # We use the wildcard * at the end to catch variations in URLs
     base_urls = [
         f"twitter.com/{username}",
+        f"twitter.com/i/user/{username}",
+        f"twitter.com/intent/user?user_id={username}",
         f"facebook.com/{username}",
+        f"facebook.com/profile.php?id={username}",
         f"instagram.com/{username}",
         f"github.com/{username}",
+        f"github.com/u/{username}",
         f"reddit.com/user/{username}",
-        f"linkedin.com/in/{username}"
+        f"linkedin.com/in/{username}",
+        f"youtube.com/@{username}",
+        f"youtube.com/user/{username}",
+        f"tiktok.com/@{username}",
+        f"snapchat.com/add/{username}",
+        f"linktr.ee/{username}"
     ]
     
     print(f"[*] Scoping Wayback CDX for: {username}\n")
